@@ -23,6 +23,14 @@ const BookingForm = () => {
             return;
         }
 
+        const confirmed = window.confirm(
+            `Confirm booking for ${name.trim()} using ${email.trim()}?`,
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
         setIsSubmitting(true);
         setStatus("idle");
 

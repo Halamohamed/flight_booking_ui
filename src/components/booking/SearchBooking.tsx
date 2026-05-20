@@ -40,6 +40,14 @@ const SearchBooking = () => {
     };
 
     const handleCancel = async (bookingId: number, passengerEmail: string) => {
+        const confirmed = window.confirm(
+            `Are you sure you want to cancel this booking for ${passengerEmail}?`,
+        );
+
+        if (!confirmed) {
+            return;
+        }
+
         setCancellingBookingId(bookingId);
         setError("");
         setMessage("");
